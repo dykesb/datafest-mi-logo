@@ -36,13 +36,17 @@ plot <- image_read(paste0(here("img/mi-dot-plot.png")))
 raw_datafest <- image_read(paste0(here("img/datafest_logo_gvsu.png")))
                                   
 datafest <- raw_datafest %>% 
-  image_scale("100") %>% 
   image_background("white", flatten = TRUE)
 
-final_plot <- image_append(image_scale(c(plot, datafest), "100"), stack = TRUE)
+final_plot <- image_append(image_scale(c(plot, datafest)), stack = TRUE)
 image_write(final_plot, paste0(here("img/mi-dot.png")))
 
-sticker(final_plot, package = "", p_size = 22, s_x = 1, s_y = 1, s_width = 1, s_height = 1, filename = paste0(here("img/hex_gvsu.png")))
+sticker(final_plot, package = "",
+        p_size = 20, 
+        s_x = 1, s_y = 1,
+        s_width = 1.3, s_height = 1.3,
+        h_fill = "white", h_color = "#0065a4",
+        filename = paste0(here("img/hex_gvsu.png")))
 
 ## Large dots
 
